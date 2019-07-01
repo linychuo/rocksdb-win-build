@@ -2,11 +2,11 @@ os: windows
 language: cpp
 
 before_script:
+  - choco install jdk8
   - mkdir build
   - cd build
 
 script:
-  - choco install jre8
   - cmake -G "Visual Studio 15 Win64" -DWITH_GFLAGS=1 -DWITH_SNAPPY=1 -DWITH_JEMALLOC=1 -DWITH_JNI=1 ../rocksdb
   - msbuild rocksdb.sln /p:Configuration=Release
 
