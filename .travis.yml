@@ -1,8 +1,10 @@
 os: windows
+language: cpp
 
 before_script:
   - mkdir build
   - cd build
+
 script:
   - cmake -G "Visual Studio 15 Win64" -DWITH_GFLAGS=1 -DWITH_SNAPPY=1 -DWITH_JEMALLOC=1 -DWITH_JNI=1 ..
   - msbuild rocksdb.sln /p:Configuration=Release
