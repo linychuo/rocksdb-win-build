@@ -1,9 +1,6 @@
 os: windows
 language: cpp
 
-env:
-  - MSBUILD_PATH = "c:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
-
 before_script:
   - choco install jdk8
   # - choco install microsoft-visual-cpp-build-tools
@@ -11,9 +8,8 @@ before_script:
   - cd build
 
 script:
-  - export PATH = $MSBUILD_PATH:$PATH
   - cmake -G "Visual Studio 15 Win64" -DWITH_GFLAGS=1 -DWITH_SNAPPY=1 -DWITH_JEMALLOC=1 -DWITH_JNI=1 ../rocksdb
-  - msbuild rocksdb.sln /p:Configuration=Release
+  - msbuild.exe rocksdb.sln /p:Configuration=Release
 
 deploy: 
   provider: pages
