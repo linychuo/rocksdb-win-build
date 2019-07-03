@@ -9,7 +9,7 @@ before_script:
 
 script:
   - cmake -G "Visual Studio 15 Win64" -DWITH_GFLAGS=1 -DWITH_SNAPPY=1 -DWITH_JEMALLOC=1 -DWITH_JNI=1 ../rocksdb
-  - msbuild.exe rocksdb.sln /p:Configuration=Release
+  - cmd.exe /C 'MSBuild.exe rocksdb.sln /p:Configuration=Release'
 
 deploy: 
   provider: pages
