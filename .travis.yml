@@ -1,9 +1,7 @@
 os: windows
-language: cpp
 
 before_script:
   - choco install jdk8
-  - choco install microsoft-visual-cpp-build-tools
   - mkdir build
   - cd build
 
