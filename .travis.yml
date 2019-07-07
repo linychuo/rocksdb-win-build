@@ -3,13 +3,13 @@ language: cpp
 
 before_script:
   - choco install jdk8
-  # - choco install microsoft-visual-cpp-build-tools
+  - choco install microsoft-build-tools
   - mkdir build
   - cd build
 
 script:
   - cmake -G "Visual Studio 15 Win64" -DWITH_GFLAGS=1 -DWITH_SNAPPY=1 -DWITH_JEMALLOC=1 -DWITH_JNI=1 ../rocksdb
-  - C:/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2017/BuildTools/VC/Tools\MSVC/14.16.27023/bin/Hostx86/x64/MSBuild.exe rocksdb.sln /p:Configuration=Release
+  - MSBuild.exe rocksdb.sln /p:Configuration=Release
 
 deploy: 
   provider: pages
