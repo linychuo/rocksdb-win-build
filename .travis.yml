@@ -1,4 +1,4 @@
-os: windows
+# os: windows
 language: cpp
 
 before_script:
